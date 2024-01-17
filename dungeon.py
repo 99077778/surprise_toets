@@ -14,87 +14,119 @@ time.sleep(1)
 
 
 # === [kamer7] === #
-print('je loopt door een kamer en vint een ruppee, je gaat verder')
+print('je loopt door een kamer en vint een ruppee')
 ruppee = 1
+print('je ziet 2 kanten die je op kan, rechtdoor of rechts')
+keuzenarupee = input("Wil je naar rechts gaan? (j/n): ")
+
 time.sleep(1)
 
+if keuzenarupee.lower() == 'n':
+    
 
 
+    # === [kamer 2] === #
+    nummer1 = random.randint(10, 25)
+    nummer2 = random.randint(-5, 75)
+    antwoord = (nummer1 + nummer2)
 
-# === [kamer 2] === #
-nummer1 = random.randint(10, 25)
-nummer2 = random.randint(-5, 75)
-antwoord = (nummer1 + nummer2)
+    print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
+    print('Het standbeeld heeft een sleutel vast.')
+    print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
+    print(f'Daarboven zie je een som staan {nummer1} + {nummer2} = ')
+    inputantwoord = int(input('Wat toest je in?: '))
 
-print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
-print('Het standbeeld heeft een sleutel vast.')
-print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
-print(f'Daarboven zie je een som staan {nummer1} + {nummer2} = ')
-inputantwoord = int(input('Wat toest je in?: '))
-
-if inputantwoord == antwoord:
-    print('Het stadbeeld laat de sleutel vallen en je pakt het op')
-    sleutel = 1
-    waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
-else:
-    print('Er gebeurt niets....')
-    sleutel = 0
-    waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
-
-print('Je zie een deur achter het standbeeld.')
-print('')
-time.sleep(1)
-
-
-if waar6of3 == 6 or waar6of3.lower() == 'kamer6' or waar6of3.lower() == 'kamer 6':
-    # === [kamer 6] === #
-    zombie_attack = 1
-    zombie_defense = 0
-    zombie_health = 2
-    print(f'Dapper loop je de kamer binnen.')
-    print('Je loopt tegen een zombie aan.')
-
-    zombie_hit_damage = (zombie_attack - player_defense)
-    if zombie_hit_damage <= 0:
-        print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
+    if inputantwoord == antwoord:
+        print('Het stadbeeld laat de sleutel vallen en je pakt het op')
+        sleutel = 1
+        waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
     else:
-        zombie_attack_amount = math.ceil(player_health / zombie_hit_damage)
-        
-        player_hit_damage = (player_attack - zombie_defense)
-        player_attack_amount = math.ceil(zombie_health / player_hit_damage)
+        print('Er gebeurt niets....')
+        sleutel = 0
+        waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
 
-        if player_attack_amount < zombie_attack_amount:
-            print(f'In {player_attack_amount} rondes versla je de zombie.')
-
-            player_health -= player_attack_amount * zombie_hit_damage
-
-            print(f'Je health is nu {player_health}.')
-        else:
-            print('Helaas is de zombie te sterk voor je.')
-            print('Game over.')
-            exit()
+    print('Je zie een deur achter het standbeeld.')
     print('')
     time.sleep(1)
 
+
+    if waar6of3 == 6 or waar6of3.lower() == 'kamer6' or waar6of3.lower() == 'kamer 6':
+        # === [kamer 6] === #
+        zombie_attack = 1
+        zombie_defense = 0
+        zombie_health = 2
+        print(f'Dapper loop je de kamer binnen.')
+        print('Je loopt tegen een zombie aan.')
+
+        zombie_hit_damage = (zombie_attack - player_defense)
+        if zombie_hit_damage <= 0:
+            print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
+        else:
+            zombie_attack_amount = math.ceil(player_health / zombie_hit_damage)
+            
+            player_hit_damage = (player_attack - zombie_defense)
+            player_attack_amount = math.ceil(zombie_health / player_hit_damage)
+
+            if player_attack_amount < zombie_attack_amount:
+                print(f'In {player_attack_amount} rondes versla je de zombie.')
+
+                player_health -= player_attack_amount * zombie_hit_damage
+
+                print(f'Je health is nu {player_health}.')
+            else:
+                print('Helaas is de zombie te sterk voor je.')
+                print('Game over.')
+                exit()
+        print('')
+        time.sleep(1)
+
+    else:
+        # === [kamer 3] === #
+        # rndomitem = random.randint(1, 2)
+
+        # if rndomitem == 1:
+        #     item = 'schild'
+        #     player_defense += 1
+        # else:
+        #     item = 'zwaard'
+        #     player_attack += 2
+
+        # print('Je duwt hem open en stap een hele lange kamer binnen.')
+        # print(f'In deze kamer staat een tafel met daarop een {item}.')
+        # print(f'Je pakt het {item} op en houd het bij je.')
+        # print('Op naar de volgende deur.')
+        # print('')
+        # time.sleep(1)
+
+
+        print('je komt in een kamer met een verkoper')
+        print('hij heeft verschillende items te koop')
+        time.sleep(1)
+        print('ITEMS:')
+        time.sleep(2)
+        print('Item1: Zwaard (1 Ruppee)')
+        time.sleep(1)
+        print('Item2: Schild (1 Ruppee)')
+        time.sleep(1)
+        print('')
+        item_keuze = input('''Wat wil je kopen:
+        Item1 / Item2 / Niks
+        : ''')
+        if item_keuze == '1' or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
+            ruppee = ruppee -1
+            print(f'je hebt een zwaard gekocht, je hebt nog {ruppee} Ruppees')
+            item = 'zwaard'
+            player_attack +=2
+        elif item_keuze == '2' or item_keuze.lower() == 'item2' or item_keuze.lower() == 'item 2' and ruppee > 0:
+            ruppee = ruppee -1
+            print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
+            item = 'schild'
+            player_defense +=1
+        else:
+            print('je koopt niets')
+            item = 'niks'
 else:
-    # === [kamer 3] === #
-    # rndomitem = random.randint(1, 2)
-
-    # if rndomitem == 1:
-    #     item = 'schild'
-    #     player_defense += 1
-    # else:
-    #     item = 'zwaard'
-    #     player_attack += 2
-
-    # print('Je duwt hem open en stap een hele lange kamer binnen.')
-    # print(f'In deze kamer staat een tafel met daarop een {item}.')
-    # print(f'Je pakt het {item} op en houd het bij je.')
-    # print('Op naar de volgende deur.')
-    # print('')
-    # time.sleep(1)
-
-
+    # === [kamer 3, (op afsnijden manier)] === #
     print('je komt in een kamer met een verkoper')
     print('hij heeft verschillende items te koop')
     time.sleep(1)
@@ -121,6 +153,8 @@ else:
     else:
         print('je koopt niets')
         item = 'niks'
+
+
 
 
 
