@@ -106,13 +106,14 @@ else:
     time.sleep(1)
     print('')
     item_keuze = input('''Wat wil je kopen:
-                       Item1 / Item2 / Niks''')
-    if item_keuze == (1 or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1') and ruppee > 0:
+    Item1 / Item2 / Niks
+    : ''')
+    if item_keuze == 1 or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
         ruppee = ruppee -1
         print(f'je hebt een zwaard gekocht, je hebt nog {ruppee} Ruppees')
         item = 'zwaard'
         player_attack +=2
-    elif item_keuze == (2 or item_keuze.lower() == 'item2' or item_keuze.lower() == 'item 2') and ruppee > 0:
+    elif item_keuze == 2 or item_keuze.lower() == 'item2' or item_keuze.lower() == 'item 2' and ruppee > 0:
         ruppee = ruppee -1
         print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
         item = 'schild'
