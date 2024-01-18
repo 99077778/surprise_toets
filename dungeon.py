@@ -4,6 +4,9 @@ player_attack = 1
 player_defense = 0
 player_health = 3
 
+sleutel = 0
+ruppee = 0
+
 
 # === [kamer 1] === #
 print('Door de twee grote deuren loop je een gang binnen.')
@@ -42,7 +45,7 @@ if keuzenarupee.lower() == 'n':
         waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
     else:
         print('Er gebeurt niets....')
-        sleutel = 0
+        #sleutel = 0
         waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
 
     print('Je zie een deur achter het standbeeld.')
@@ -81,6 +84,36 @@ if keuzenarupee.lower() == 'n':
         time.sleep(1)
 
     else:
+        # === [kamer 8] === #
+        print('je komt in een kamer met een gokmachine')
+        print('')
+        print('er worden 2 dobbelstenen gerold in de machine')
+        print('als de uitkomst hoger dan 7 is, verdubbeld je ruppees')
+        print('als de uitkomst 7 is, krijg je 1 ruppee en 4 health erbij')
+        print('als de uitkomst minder dan 7 is verlies je 1 health')
+        print('')
+        spelen = input('wil je spelen (y/n): ')
+        if spelen.lower() == 'y':
+            dobbel1 = random.randint(1, 6)
+            dobbel2 = random.randint(1, 6)
+            print(f"de eerste dobbelsteen valt op {dobbel1}")
+            time.sleep(1)
+            print(f"en de tweede op {dobbel2}")
+            uitkomst = dobbel1 + dobbel2
+            if uitkomst == 7:
+                print(f'de uitkomst is {uitkomst}, je krijgt 1 ruppee en 4 health erbij. nu heb je {ruppee} ruppees en {player_health} health')
+            elif uitkomst > 7:
+                print(f'de uitkomst is {uitkomst}, je ruppees verdubbelen, je hebt nu {ruppee} ruppees')
+                
+        else:
+            print('je gaat verder')
+
+
+
+
+
+
+
         # === [kamer 3] === #
         # rndomitem = random.randint(1, 2)
 
@@ -97,10 +130,70 @@ if keuzenarupee.lower() == 'n':
         # print('Op naar de volgende deur.')
         # print('')
         # time.sleep(1)
-
-
         print('je komt in een kamer met een verkoper')
         print('hij heeft verschillende items te koop')
+
+        while ruppee > 0:
+            time.sleep(1)
+            print('ITEMS:')
+            time.sleep(2)
+            print('Item1: Zwaard (1 Ruppee)')
+            time.sleep(1)
+            print('Item2: Schild (1 Ruppee)')
+            time.sleep(1)
+            print('')
+            item_keuze = input('''Wat wil je kopen:
+            Item1 / Item2 / Niks
+            : ''')
+            if item_keuze == '1' or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
+                ruppee = ruppee -1
+                print(f'je hebt een zwaard gekocht, je hebt nog {ruppee} Ruppees')
+                item = 'zwaard'
+                player_attack +=2
+            elif item_keuze == '2' or item_keuze.lower() == 'item2' or item_keuze.lower() == 'item 2' and ruppee > 0:
+                ruppee = ruppee -1
+                print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
+                item = 'schild'
+                player_defense +=1
+            elif item_keuze.lower() == 'niks' or item_keuze == '':
+                print('je koopt niets')
+                item = 'niks'
+            else:
+                print('je hebt geen rupees om items te kopen')
+                item = 'niks'
+else:
+
+
+    # === [kamer 8 (op afsnijden manier)] === #
+    print('je komt in een kamer met een gokmachine')
+    print('')
+    print('er worden 2 dobbelstenen gerold in de machine')
+    print('als de uitkomst hoger dan 7 is, verdubbeld je ruppees')
+    print('als de uitkomst 7 is, krijg je 1 ruppee en 4 health erbij')
+    print('als de uitkomst minder dan 7 is verlies je 1 health')
+    print('')
+    spelen = input('wil je spelen (y/n): ')
+    if spelen.lower() == 'y':
+        dobbel1 = random.randint(1, 6)
+        dobbel2 = random.randint(1, 6)
+        print(f"de eerste dobbelsteen valt op {dobbel1}")
+        time.sleep(1)
+        print(f"en de tweede op {dobbel2}")
+        uitkomst = dobbel1 + dobbel2
+        if uitkomst == 7:
+            print(f'de uitkomst is {uitkomst}, je krijgt 1 ruppee en 4 health erbij. nu heb je {ruppee} ruppees en {player_health} health')
+        elif uitkomst > 7:
+            print(f'de uitkomst is {uitkomst}, je ruppees verdubbelen, je hebt nu {ruppee} ruppees')
+            
+    else:
+        print('je gaat verder')
+
+
+    # === [kamer 3, (op afsnijden manier)] === #
+    print('je komt in een kamer met een verkoper')
+    print('hij heeft verschillende items te koop')
+
+    while ruppee > 0:
         time.sleep(1)
         print('ITEMS:')
         time.sleep(2)
@@ -122,39 +215,12 @@ if keuzenarupee.lower() == 'n':
             print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
             item = 'schild'
             player_defense +=1
-        else:
+        elif item_keuze.lower() == 'niks' or item_keuze == '':
             print('je koopt niets')
             item = 'niks'
-else:
-    # === [kamer 3, (op afsnijden manier)] === #
-    print('je komt in een kamer met een verkoper')
-    print('hij heeft verschillende items te koop')
-    time.sleep(1)
-    print('ITEMS:')
-    time.sleep(2)
-    print('Item1: Zwaard (1 Ruppee)')
-    time.sleep(1)
-    print('Item2: Schild (1 Ruppee)')
-    time.sleep(1)
-    print('')
-    item_keuze = input('''Wat wil je kopen:
-    Item1 / Item2 / Niks
-    : ''')
-    if item_keuze == '1' or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
-        ruppee = ruppee -1
-        print(f'je hebt een zwaard gekocht, je hebt nog {ruppee} Ruppees')
-        item = 'zwaard'
-        player_attack +=2
-    elif item_keuze == '2' or item_keuze.lower() == 'item2' or item_keuze.lower() == 'item 2' and ruppee > 0:
-        ruppee = ruppee -1
-        print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
-        item = 'schild'
-        player_defense +=1
-    else:
-        print('je koopt niets')
-        item = 'niks'
-
-
+        else:
+            print('je hebt geen rupees om items te kopen')
+            item = 'niks'
 
 
 
