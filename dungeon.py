@@ -16,9 +16,15 @@ print('')
 time.sleep(1)
 
 
-# === [kamer7] === #
-print('je loopt door een kamer en vint een ruppee')
-ruppee = 1
+# === [kamer 7] === #
+ruppeenummer = random.randint(1,10)
+
+if ruppeenummer == 1:
+    print('je loopt door een kamer en vind niks')
+
+else:
+    print('je loopt door een kamer en vint een ruppee')
+    ruppee = 1
 print('je ziet 2 kanten die je op kan, rechtdoor of rechts')
 keuzenarupee = input("Wil je naar rechts gaan? (j/n): ")
 
@@ -34,14 +40,16 @@ if keuzenarupee.lower() == 'n':
     antwoord = (nummer1 + nummer2)
 
     print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
-    print('Het standbeeld heeft een sleutel vast.')
+    print('Het standbeeld heeft een ruppee vast.')
     print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
     print(f'Daarboven zie je een som staan {nummer1} + {nummer2} = ')
     inputantwoord = int(input('Wat toest je in?: '))
 
     if inputantwoord == antwoord:
-        print('Het stadbeeld laat de sleutel vallen en je pakt het op')
-        sleutel = 1
+        print('Het stadbeeld laat de ruppee vallen en je pakt het op')
+        #sleutel = 1
+        ruppee += 1
+        print(f"Je hebt nu {ruppee} ruppees.")
         waar6of3 = input('Je kan nu door 2 kamers, maar welke (kamer3 of kamer6): ')
     else:
         print('Er gebeurt niets....')
@@ -110,6 +118,18 @@ if keuzenarupee.lower() == 'n':
 
 
 
+        # === [kamer 9] === #
+        kamer9random = random.randint(1,2)
+
+        if kamer9random == 1:
+            print('je loopt een kamer in en krijgt opeens 1 defence erbij')
+            player_defense += 1
+
+        else:
+            print('je loopt een kamer in en krijgt 2 health erbij')
+            player_health += 2
+
+        print('je loopt door')
 
 
 
@@ -141,9 +161,10 @@ if keuzenarupee.lower() == 'n':
             time.sleep(1)
             print('Item2: Schild (1 Ruppee)')
             time.sleep(1)
+            print('Item 3 Sleutel (1 Ruppee)')
             print('')
             item_keuze = input('''Wat wil je kopen:
-            Item1 / Item2 / Niks
+            Item1 / Item2 / Item3 / Niks
             : ''')
             if item_keuze == '1' or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
                 ruppee = ruppee -1
@@ -155,6 +176,11 @@ if keuzenarupee.lower() == 'n':
                 print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
                 item = 'schild'
                 player_defense +=1
+            elif item_keuze == '3' or item_keuze.lower() == 'item3' or item_keuze.lower() == 'item 3' and ruppee > 0:
+                ruppee = ruppee -1
+                print(f'je hebt de sleutel gekocht, je hebt nog {ruppee} Ruppees')
+                item = 'niks'
+                sleutel = 1
             elif item_keuze.lower() == 'niks' or item_keuze == '':
                 print('je koopt niets')
                 item = 'niks'
@@ -189,6 +215,23 @@ else:
         print('je gaat verder')
 
 
+
+    # === [kamer 9 (op afsnijden manier)] === #
+    kamer9random = random.randint(1,2)
+
+    if kamer9random == 1:
+        print('je loopt een kamer in en krijgt opeens 1 defence erbij')
+        player_defense += 1
+
+    else:
+        print('je loopt een kamer in en krijgt 2 health erbij')
+        player_health += 2
+
+    print('je loopt door')
+
+
+
+
     # === [kamer 3, (op afsnijden manier)] === #
     print('je komt in een kamer met een verkoper')
     print('hij heeft verschillende items te koop')
@@ -201,9 +244,10 @@ else:
         time.sleep(1)
         print('Item2: Schild (1 Ruppee)')
         time.sleep(1)
+        print('Item 3 Sleutel (1 Ruppee)')
         print('')
         item_keuze = input('''Wat wil je kopen:
-        Item1 / Item2 / Niks
+        Item1 / Item2 / Item3 / Niks
         : ''')
         if item_keuze == '1' or item_keuze.lower() == 'item1' or item_keuze.lower() == 'item 1' and ruppee > 0:
             ruppee = ruppee -1
@@ -215,6 +259,11 @@ else:
             print(f'je hebt een schild gekocht, je hebt nog {ruppee} Ruppees')
             item = 'schild'
             player_defense +=1
+        elif item_keuze == '3' or item_keuze.lower() == 'item3' or item_keuze.lower() == 'item 3' and ruppee > 0:
+            ruppee = ruppee -1
+            print(f'je hebt de sleutel gekocht, je hebt nog {ruppee} Ruppees')
+            item = 'niks'
+            sleutel = 1
         elif item_keuze.lower() == 'niks' or item_keuze == '':
             print('je koopt niets')
             item = 'niks'
