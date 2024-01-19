@@ -91,6 +91,14 @@ if keuzenarupee.lower() == 'n':
         print('')
         time.sleep(1)
 
+
+        #opdracht8
+
+        # naarkamer3 = input('waarnaartoe, kamer 3 of kamer 8')
+        # if naarkamer3 == 3 or naarkamer3.lower() == "kamer 3" or naarkamer3.lower() == 'kamer3':
+
+
+
     else:
         # === [kamer 8] === #
         print('je komt in een kamer met een gokmachine')
